@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма регистрации</title>
+</head>
+<body>
+
+<h2 align="center">Форма регистрации</h2>
+
+<form>
+
+<table align="center">
+    <tr>
+        <td>Имя</td>
+        <td><input type="text" name="name" size="30"></td>
+    </tr>
+
+    <tr>
+        <td>e-mail</td>
+        <td><input type="email" name="email" size="30"></td>
+    </tr>
+
+    <tr>
+        <td>Пароль</td>
+        <td><input type="password" name="pass1" size="30"></td>
+    </tr>
+
+    <tr>
+        <td>Повтор пароля</td>
+        <td><input type="password" name="pass2" size="30"></td>
+    </tr>
+
+    <tr>
+        <td>Пол</td>
+        <td>
+            <input type="radio" name="sex" value="m"> мужской
+            <input type="radio" name="sex" value="f"> женский
+        </td>
+    </tr>
+
+    <tr>
+        <td>Увлечения</td>
+        <td>
+            <select name="hobby" size="7">
+                <option>компьютеры</option>
+                <option>спорт</option>
+                <option>игры</option>
+                <option>животные</option>
+                <option>автомобили</option>
+                <option>клубы</option>
+                <option>музыка</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Ваши пожелания</td>
+        <td>
+            <textarea name="comment" cols="35" rows="5"></textarea>
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>
+            <input type="submit" value="Отправить">
+            <input type="reset" value="Очистить">
+        </td>
+    </tr>
+</table>
+
+</form>
+
+</body>
+</html>
