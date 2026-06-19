@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3</title>
+</head>
+<body>
+
+<button onclick="countNumbers()">Подсчитать</button>
+
+<div id="result"></div>
+
+<script>
+    let numbers = [5, 12, 8, 130, 44, 3, 7, 21];
+
+    function countNumbers() {
+        let greater = 0;
+        let less = 0;
+        let equal = 0;
+        let sum = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+
+            if (numbers[i] > 10) {
+                greater++;
+            } else if (numbers[i] < 10) {
+                less++;
+            } else {
+                equal++;
+            }
+
+            sum += numbers[i];
+        }
+
+        document.getElementById("result").innerHTML = `
+            <p>Чисел больше 10: ${greater}</p>
+            <p>Чисел меньше 10: ${less}</p>
+            <p>Чисел равных 10: ${equal}</p>
+            <p>Сумма всех элементов: ${sum}</p>
+        `;
+    }
+</script>
+
+</body>
+</html>

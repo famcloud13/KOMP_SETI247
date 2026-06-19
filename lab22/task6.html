@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 6</title>
+</head>
+<body>
+
+<button onclick="generateName()">
+    Случайное имя
+</button>
+
+<button onclick="generateTenNames()">
+    Сгенерировать 10 имён
+</button>
+
+<p id="counter">Сгенерировано: 0</p>
+
+<div id="result"></div>
+
+<script>
+    let names = [
+        "Анна",
+        "Петр",
+        "Иван",
+        "Мария",
+        "Ольга",
+        "Дмитрий",
+        "Елена",
+        "Сергей",
+        "Татьяна",
+        "Алексей"
+    ];
+
+    let surnames = [
+        "Иванова",
+        "Петров",
+        "Сидоров",
+        "Кузнецова",
+        "Смирнов",
+        "Волкова",
+        "Морозов",
+        "Новикова",
+        "Федоров",
+        "Соколова"
+    ];
+
+    let patronymics = [
+        "Иванович",
+        "Петрович",
+        "Сергеевич",
+        "Алексеевич",
+        "Дмитриевич",
+        "Ивановна",
+        "Петровна",
+        "Сергеевна",
+        "Алексеевна",
+        "Дмитриевна"
+    ];
+
+    let generatedCount = 0;
+
+    function getRandomElement(arr) {
+        let randomIndex =
+            Math.floor(Math.random() * arr.length);
+
+        return arr[randomIndex];
+    }
+
+    function generateFullName() {
+        return getRandomElement(names) + " " +
+               getRandomElement(surnames) + " " +
+               getRandomElement(patronymics);
+    }
+
+    function updateCounter() {
+        document.getElementById("counter").textContent =
+            "Сгенерировано: " + generatedCount;
+    }
+
+    function generateName() {
+        document.getElementById("result").innerHTML =
+            "<p>" + generateFullName() + "</p>";
+
+        generatedCount++;
+        updateCounter();
+    }
+
+    function generateTenNames() {
+        let html = "";
+
+        for (let i = 0; i < 10; i++) {
+            html += "<p>" + generateFullName() + "</p>";
+            generatedCount++;
+        }
+
+        document.getElementById("result").innerHTML = html;
+
+        updateCounter();
+    }
+</script>
+
+</body>
+</html>

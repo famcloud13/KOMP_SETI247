@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        #errorMsg {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Список дел</h2>
+
+<input type="text" id="taskInput" placeholder="Новое дело...">
+
+<button id="addTaskBtn">➕ Добавить</button>
+<button id="clearAllBtn">🗑️ Очистить все</button>
+<button id="removeCompletedBtn">✔ Удалить выполненные</button>
+
+<p id="counter">Всего дел: 0</p>
+
+<ul id="taskList"></ul>
+
+<p id="errorMsg"></p>
+
+<script>
+    const taskInput = document.getElementById("taskInput");
+    const addTaskBtn = document.getElementById("addTaskBtn");
+    const clearAllBtn = document.getElementById("clearAllBtn");
+    const removeCompletedBtn = document.getElementById("removeCompletedBtn");
+    const taskList = document.getElementById("taskList");
+    const counter = document.getElementById("counter");
+    const errorMsg = document.getElementById("errorMsg");
+
+    function updateCounter() {
+        let count = document.querySelectorAll("#taskList li").length;
+        counter.textContent = "Всего дел: " + count;
+    }
+
+    function createTaskItem(taskText) {
+        let li = document.createElement("li");
+
+        let textSpan = document.createElement("span");
+        textSpan.textContent = taskText;
+
+        textSpan.onclick = function() {
+            textSpan.classList.toggle("completed");
+        };
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Удалить";
+
+        deleteBtn.onclick = function() {
+            li.remove();
+            updateCounter();
+        };
+
+        li.appendChild(textSpan);
+        li.appendChild(document.createTextNode(" "));
+        li.appendChild(deleteBtn);
+
+        return li;
+    }
+
+    addTaskBtn.onclick = function() {
+
+        let text = taskInput.value.trim();
+
+        if (text === "") {
+            errorMsg.textContent = "Введите текст задачи";
+            return;
+        }
+
+        errorMsg.textContent = "";
+
+        let task = createTaskItem(text);
+
+        taskList.appendChild(task);
+
+        taskInput.value = "";
+
+        updateCounter();
+    };
+
+    clearAllBtn.onclick = function() {
+        taskList.innerHTML = "";
+        updateCounter();
+    };
+
+    removeCompletedBtn.onclick = function() {
+        let completedTasks =
+            document.querySelectorAll(".completed");
+
+        completedTasks.forEach(task => {
+            task.parentElement.remove();
+        });
+
+        updateCounter();
+    };
+</script>
+
+</body>
+</html>
+
+
+

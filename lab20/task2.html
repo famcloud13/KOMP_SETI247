@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор суммы</title>
+</head>
+<body>
+
+<input type="number" id="num1">
+<input type="number" id="num2">
+
+<button id="sumBtn">Сложить</button>
+
+<p id="result"></p>
+
+<script>
+    let button = document.querySelector("#sumBtn");
+    let result = document.querySelector("#result");
+
+    button.onclick = function () {
+        let a = Number(document.querySelector("#num1").value);
+        let b = Number(document.querySelector("#num2").value);
+
+        let sum = a + b;
+
+        result.textContent = "Сумма = " + sum;
+    };
+</script>
+
+</body>
+</html>
+

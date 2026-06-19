@@ -1,0 +1,13 @@
+.a{
+    letter-spacing: -1px;
+}
+.b{
+    letter-spacing: 1px;
+
+}
+.c{
+    word-spacing: -1px;
+}
+.d{
+    word-spacing: 1px;
+}
